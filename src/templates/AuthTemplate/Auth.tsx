@@ -18,6 +18,9 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
+import { useDispatch } from 'react-redux';
+import { logout } from '../../store/authSlice';
+import { Button } from '@mui/material';
 
 const drawerWidth = 240;
 
@@ -95,6 +98,7 @@ interface IProps {
 }
 
 function AuthTemplate({ component }: IProps) {
+    const dispatch = useDispatch()
     const theme = useTheme();
     const [open, setOpen] = React.useState(false);
 
@@ -106,10 +110,12 @@ function AuthTemplate({ component }: IProps) {
         setOpen(false);
     };
 
+
+
     return (
         <Box sx={{ display: 'flex' }}>
             <CssBaseline />
-            <AppBar position="fixed" open={open}>
+            <AppBar position="fixed" open={open} color="transparent">
                 <Toolbar>
                     <IconButton
                         color="inherit"
@@ -123,9 +129,16 @@ function AuthTemplate({ component }: IProps) {
                     >
                         <MenuIcon />
                     </IconButton>
-                    <Typography variant="h6" noWrap component="div">
+                    <Typography variant="h6" noWrap component="div" marginRight={2}>
                         Mini variant drawer
                     </Typography>
+                    <Button
+                        color="primary"
+                        variant="contained"
+                        onClick={() => {
+                            dispatch(logout({}))
+                        }}
+                    >Enter</Button>
                 </Toolbar>
             </AppBar>
             <Drawer variant="permanent" open={open}>

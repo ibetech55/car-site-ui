@@ -1,11 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
+import { authReducer } from "./authSlice";
 import { brandReducer } from "./brandSlice";
 import { modelReducer } from "./modelSlice";
 
 export const store = configureStore({
     reducer: {
         brands: brandReducer,
-        models: modelReducer
+        models: modelReducer,
+        auth: authReducer
     },
 });
 

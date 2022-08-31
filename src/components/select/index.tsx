@@ -8,10 +8,12 @@ interface ISelectComponent {
     data: { id: string | number; name: string }[]
     label?: string,
     title?: string
+    marginRight?: string | number
 }
-const SelectComponent = ({ value, onChange, data, label, title }: ISelectComponent) => {
+
+const SelectComponent = ({ value, onChange, data, label, title, marginRight }: ISelectComponent) => {
     return (
-        <FormControl fullWidth size="small" sx={{ marginRight: 2 }} >
+        <FormControl fullWidth size="small" sx={{ marginRight }}>
             <InputLabel id="demo-simple-select-label">{title}</InputLabel>
             <Select
                 labelId="demo-simple-select-label"
@@ -19,6 +21,7 @@ const SelectComponent = ({ value, onChange, data, label, title }: ISelectCompone
                 value={value}
                 label={label}
                 onChange={(e) => onChange(e.target.value)}
+                sx={{ background: '#fff' }}
             >
                 {data && data.map(d => (
                     <MenuItem value={d.id}>{d.name}</MenuItem>

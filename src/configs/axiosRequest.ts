@@ -15,6 +15,8 @@ axios.interceptors.response.use(resp => resp, async error => {
             return axios(error.config)
         }
     } else {
+        localStorage.removeItem('test');
+        window.location.pathname = '/'
         return error;
     }
 })

@@ -1,5 +1,7 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { useDispatch } from "react-redux";
 import axios from '../configs/axiosRequest'
+import { loadingComponent } from "./authSlice";
 interface Brand {
     id: string;
     name?: string;
@@ -35,7 +37,6 @@ export const brandSlice = createSlice({
             state.brands = action.payload;
         },
         [getBrands.pending]: (state, action) => {
-            console.log('Pending')
         },
         [getBrands.rejected]: (state, action) => {
             state.brands = undefined;
