@@ -1,0 +1,2 @@
+*{box-sizing:border-box;margin:0;padding:0}:root{--primary:none;--secondary:none}.sticky{background-color:none;background-color:var(--primary)}.landing-page__nav-text,.sticky{color:#fff;transition:.6s}.landing-page__nav-link:hover{background-color:none;background-color:var(--secondary);color:none;color:var(--primary);transition:.6s}
+/*# sourceMappingURL=main.834f0536.css.map*/
